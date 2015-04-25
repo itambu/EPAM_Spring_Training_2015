@@ -1,0 +1,6 @@
+C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplication44\bin\Debug\ConsoleApplication44.exe.config
+C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplication44\bin\Debug\ConsoleApplication44.exe
+C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplication44\bin\Debug\ConsoleApplication44.pdb
+C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplication44\obj\Debug\ConsoleApplication44.csprojResolveAssemblyReference.cache
+C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplication44\obj\Debug\ConsoleApplication44.exe
+C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplication44\obj\Debug\ConsoleApplication44.pdb
