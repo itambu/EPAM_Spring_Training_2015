@@ -5,53 +5,59 @@ using System.Text;
 
 namespace ConsoleApplication44
 {
-    public class Serial : Movie, ICollection<Season>
+    public class Serial : Movie, ICollection<Season>, IMediaItem
     {
         private ICollection<Season> seasons = new List<Season>();
 
+        public new TimeSpan Duration
+        {
+            get { return seasons.Aggregate(new TimeSpan(0, 0, 0), (seed, x) => seed + x.Duration); }
+            set { new InvalidOperationException("Deprecated"); }
+        }
+
         public void Add(Season item)
         {
-            throw new NotImplementedException();
+            seasons.Add(item);
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            seasons.Clear();
         }
 
         public bool Contains(Season item)
         {
-            throw new NotImplementedException();
+            return seasons.Contains(item);
         }
 
         public void CopyTo(Season[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            seasons.CopyTo(array, arrayIndex);
         }
 
         public int Count
         {
-            get { throw new NotImplementedException(); }
+            get { return seasons.Count; }
         }
 
         public bool IsReadOnly
         {
-            get { throw new NotImplementedException(); }
+            get { return seasons.IsReadOnly; }
         }
 
         public bool Remove(Season item)
         {
-            throw new NotImplementedException();
+            return seasons.Remove(item);
         }
 
         public IEnumerator<Season> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return seasons.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this.GetEnumerator();
         }
     }
 }

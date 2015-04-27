@@ -68,8 +68,6 @@ namespace ConsoleApplication44
             this.Sort( new MediaItemComparerByCreationDate() );
         }
 
-
-
         public IEnumerable<IMediaItem> GetMediaItems(DateTime startDate, DateTime endDate)
         {
             foreach (var i in mediaItems)

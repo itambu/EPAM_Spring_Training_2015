@@ -58,6 +58,7 @@
     <Compile Include="Rating.cs" />
     <Compile Include="Season.cs" />
     <Compile Include="Serial.cs" />
+    <Compile Include="SerialBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

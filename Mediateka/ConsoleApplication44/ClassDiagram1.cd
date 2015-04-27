@@ -57,7 +57,7 @@
   <Class Name="ConsoleApplication44.Serial">
     <Position X="0.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AiIAAAAAAAAAABAQAAAABAQAAAAAAAAAAAAAAABQIAA=</HashCode>
+      <HashCode>AiIAAAAAAAACABAQAAAABAQAAAAAAAAAAAAAAABQIAA=</HashCode>
       <FileName>Serial.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -77,6 +77,13 @@
       <FileName>MediaItemComparerByCreationDate.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ConsoleApplication44.SerialBuilder">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAIAAAAAgAAAAAAAEAQAAAAAAAEAAAAABAACAAA=</HashCode>
+      <FileName>SerialBuilder.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="ConsoleApplication44.IMediaItem">
     <Position X="4.75" Y="4.5" Width="1.5" />

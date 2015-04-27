@@ -4,3 +4,9 @@ C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplicati
 C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplication44\obj\Debug\ConsoleApplication44.csprojResolveAssemblyReference.cache
 C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplication44\obj\Debug\ConsoleApplication44.exe
 C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication44\ConsoleApplication44\obj\Debug\ConsoleApplication44.pdb
+D:\EPMTrainingExamples\EPAM_Spring_Training_2015\Mediateka\ConsoleApplication44\bin\Debug\ConsoleApplication44.exe.config
+D:\EPMTrainingExamples\EPAM_Spring_Training_2015\Mediateka\ConsoleApplication44\obj\Debug\ConsoleApplication44.exe
+D:\EPMTrainingExamples\EPAM_Spring_Training_2015\Mediateka\ConsoleApplication44\obj\Debug\ConsoleApplication44.pdb
+D:\EPMTrainingExamples\EPAM_Spring_Training_2015\Mediateka\ConsoleApplication44\bin\Debug\ConsoleApplication44.exe
+D:\EPMTrainingExamples\EPAM_Spring_Training_2015\Mediateka\ConsoleApplication44\bin\Debug\ConsoleApplication44.pdb
+D:\EPMTrainingExamples\EPAM_Spring_Training_2015\Mediateka\ConsoleApplication44\obj\Debug\ConsoleApplication44.csprojResolveAssemblyReference.cache

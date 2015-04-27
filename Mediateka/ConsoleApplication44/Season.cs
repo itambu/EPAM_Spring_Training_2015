@@ -12,51 +12,51 @@ namespace ConsoleApplication44
         public Rating Rating { get; set; }
         public string Name { get; set; }
 
-       // private ICollection<Mo
+        private ICollection<IMovieItem> items = new List<IMovieItem>();
 
         public void Add(IMovieItem item)
         {
-            throw new NotImplementedException();
+            items.Add(item);
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            items.Clear();
         }
 
         public bool Contains(IMovieItem item)
         {
-            throw new NotImplementedException();
+            return items.Contains(item);
         }
 
         public void CopyTo(IMovieItem[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            items.CopyTo(array, arrayIndex);
         }
 
         public int Count
         {
-            get { throw new NotImplementedException(); }
+            get { return items.Count; }
         }
 
         public bool IsReadOnly
         {
-            get { throw new NotImplementedException(); }
+            get { return items.IsReadOnly; }
         }
 
         public bool Remove(IMovieItem item)
         {
-            throw new NotImplementedException();
+            return items.Remove(item);
         }
 
         public IEnumerator<IMovieItem> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return items.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this.GetEnumerator();
         }
     }
 }
