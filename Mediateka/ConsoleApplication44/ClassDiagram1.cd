@@ -6,7 +6,7 @@
       <HashCode>QAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>MediaItem.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.19" Collapsed="true" />
   </Class>
   <Class Name="ConsoleApplication44.Photo" Collapsed="true">
     <Position X="7.5" Y="1.75" Width="1.5" />
@@ -46,13 +46,13 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ConsoleApplication44.Season" Collapsed="true">
-    <Position X="10" Y="0.5" Width="1.5" />
+  <Class Name="ConsoleApplication44.Season" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QCIAAAAAAAACABAQAAAABAQAAAAAAAEAAAAAAABQIAA=</HashCode>
+      <HashCode>QCIAAAAAAAACABAQAAgABAQAAAAAAAEAAAAAAABQIAA=</HashCode>
       <FileName>Season.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ConsoleApplication44.Serial">
     <Position X="0.75" Y="4.75" Width="1.5" />
@@ -62,24 +62,24 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ConsoleApplication44.Mediateka">
-    <Position X="1.5" Y="9.75" Width="1.5" />
+  <Class Name="ConsoleApplication44.Mediateka" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACIAAEBAAAQAABAQAAAQBAQAAAAAAAAAAAAAAABQIAA=</HashCode>
       <FileName>Mediateka.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ConsoleApplication44.MediaItemComparerByCreationDate">
-    <Position X="4.25" Y="10.75" Width="1.5" />
+  <Class Name="ConsoleApplication44.MediaItemComparerByCreationDate" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>MediaItemComparerByCreationDate.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ConsoleApplication44.SerialBuilder">
-    <Position X="5" Y="3.25" Width="1.5" />
+  <Class Name="ConsoleApplication44.SerialBuilder" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAIAAAAAgAAAAAAAEAQAAAAAAAEAAAAABAACAAA=</HashCode>
       <FileName>SerialBuilder.cs</FileName>
@@ -114,7 +114,7 @@
     </TypeIdentifier>
   </Interface>
   <Enum Name="ConsoleApplication44.Rating" Collapsed="true">
-    <Position X="10" Y="1.75" Width="1.5" />
+    <Position X="10" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Rating.cs</FileName>
