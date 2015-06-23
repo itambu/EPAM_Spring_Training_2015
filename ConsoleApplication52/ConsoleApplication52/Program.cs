@@ -25,8 +25,8 @@ namespace ConsoleApplication52
                 //dc.BlogItemSet.Add(bi);
                 //dc.SaveChanges();
 
-                dc.Database.
-                var c = dc.UserSet.FirstOrDefault().BlogItems.ToList();
+                //dc.Database.
+                //var c = dc.UserSet.FirstOrDefault().BlogItems.ToList();
 
             }
             
