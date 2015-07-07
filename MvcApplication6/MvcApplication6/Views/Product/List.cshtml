@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MvcApplication6.Models.Product>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+<h2>List</h2>
+
+<section id="productlist-section">
+    @Html.Partial("ViewProductList", Model)
+</section>
+<section id="product-section">
+    <div id="product-div">
+@*        @Html.Partial("Open", new MvcApplication6.Models.Product())*@
+    </div>
+</section>
+
+
+
