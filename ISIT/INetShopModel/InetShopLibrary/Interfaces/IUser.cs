@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace InetShopLibrary
+{
+    public interface IUser
+    {
+        int Id { get; }
+        string FullName { get; }
+        Address Address { get; }
+    }
+}
