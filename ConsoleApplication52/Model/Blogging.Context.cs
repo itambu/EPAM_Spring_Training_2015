@@ -25,7 +25,6 @@ namespace Model
             throw new UnintentionalCodeFirstException();
         }
     
-        
         public DbSet<Blog> BlogSet { get; set; }
         public DbSet<BlogItem> BlogItemSet { get; set; }
         public DbSet<User> UserSet { get; set; }

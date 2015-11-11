@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/08/2015 21:34:53
--- Generated from EDMX file: C:\Users\USER\Documents\Visual Studio 2012\ConsoleApplication52\Model\Blogging.edmx
+-- Date Created: 11/10/2015 20:01:59
+-- Generated from EDMX file: D:\EPMTrainingExamples\EPAM_Spring_Training_2015\ConsoleApplication52\Model\Blogging.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [blogs];
+USE [blog];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -17,11 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_UserBlogItem]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BlogItemSet] DROP CONSTRAINT [FK_UserBlogItem];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BlogItemBlog]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BlogItemSet] DROP CONSTRAINT [FK_BlogItemBlog];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[BlogSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BlogSet];
+GO
+IF OBJECT_ID(N'[dbo].[BlogItemSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BlogItemSet];
+GO
+IF OBJECT_ID(N'[dbo].[UserSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserSet];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables

@@ -19,7 +19,6 @@ namespace Model
             this.BlogItems = new HashSet<BlogItem>();
         }
     
-        
         public int Id { get; set; }
         public string UserName { get; set; }
     

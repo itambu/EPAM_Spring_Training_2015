@@ -16,10 +16,10 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ConsoleApplication5.Parser" Collapsed="true">
+  <Class Name="ConsoleApplication5.Parser">
     <Position X="7.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAQAAAAEAABAAAAAQIAAIA=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAQAAAAEQABAAAAAQIAAIA=</HashCode>
       <FileName>Parser.cs</FileName>
     </TypeIdentifier>
   </Class>

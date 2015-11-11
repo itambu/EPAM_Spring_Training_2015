@@ -466,6 +466,12 @@ namespace BL
         #region
         private object userOpSync = new object();
 
+        public void AddUser(DAL.Models.User user)
+        {
+            userRepository.Add(user);
+            userRepository.SaveChanges();
+        }
+
         public Task ProcessFile()
         {
             var task = new Task(t1);

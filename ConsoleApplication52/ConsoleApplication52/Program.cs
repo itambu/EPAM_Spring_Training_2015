@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
+using BL;
 
 namespace ConsoleApplication52
 {
@@ -11,24 +11,17 @@ namespace ConsoleApplication52
     {
         static void Main(string[] args)
         {
-            //User u2 = null;
-            using (BloggingContainer dc = new BloggingContainer())
+            try
             {
-                dc.Database.Log = x => Console.WriteLine(x);
-                
-                //User u = dc.UserSet.FirstOrDefault(x => x.Id == 1);
-
-                //Blog b = new Blog();
-                //dc.BlogSet.Add(b);
-
-                //BlogItem bi = new BlogItem() { User = u, Blog = b };
-                //dc.BlogItemSet.Add(bi);
-                //dc.SaveChanges();
-
-                //dc.Database.
-                //var c = dc.UserSet.FirstOrDefault().BlogItems.ToList();
-
+                BL.DataCollector dc = new DataCollector();
+                //dc.ProcessFile();
+                DAL.Models.User user = new DAL.Models.User() { UserName = "John" };
+                dc.AddUser(user);
             }
+            catch (ArgumentException e)
+            {
+            }
+            
             
         }
     }

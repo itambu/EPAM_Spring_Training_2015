@@ -56,9 +56,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{de7bf3da-1e17-4a96-9795-f0930504dd83}</Project>
-      <Name>Model</Name>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{185ed76d-acd0-4800-a866-4df21a627f59}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{0fc7269b-90a8-425e-be10-e0d4b03b3341}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

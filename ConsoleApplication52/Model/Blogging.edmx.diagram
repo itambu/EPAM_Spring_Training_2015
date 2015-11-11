@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="14b6fba264474a96bcbaa0709e7bc043" Name="Diagram1" >
+      <Diagram DiagramId="14b6fba264474a96bcbaa0709e7bc043" Name="Diagram1" ZoomLevel="150" >
         <EntityTypeShape EntityType="Blogging.Blog" Width="1.5" PointX="3.375" PointY="0.625" />
         <EntityTypeShape EntityType="Blogging.BlogItem" Width="1.5" PointX="1.125" PointY="0.625" />
         <EntityTypeShape EntityType="Blogging.User" Width="1.5" PointX="3.375" PointY="2.5" />

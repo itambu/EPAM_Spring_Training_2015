@@ -28,7 +28,15 @@ namespace DAL
 
         public void Remove(Models.User item)
         {
-
+            var user = this.context.UserSet.FirstOrDefault(x=>x.Id==item.Id);
+            if (user != null)
+            {
+                context.UserSet.Remove(user);
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
 
         public void Update(Models.User item)
@@ -40,10 +48,11 @@ namespace DAL
         {
             get 
             {
-                foreach (var u in this.context.UserSet)
-                {
-                    yield return this.ToObject(u);
-                }
+                return this.context.UserSet.Select(x => this.ToObject(x));
+                //foreach (var u in this.context.UserSet)
+                //{
+                //    yield return this.ToObject(u);
+                //}
             }
         }
 
