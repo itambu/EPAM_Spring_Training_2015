@@ -9,7 +9,7 @@ namespace MvcApplication6.Controllers
 {
     public class ProductController : Controller
     {
-        List<Product> list = new List<Product>()
+        public static List<Product> ProductList = new List<Product>()
             {
                 new Product(){Id=1, Description="dgsjgsj", Appeared=DateTime.Now}
             };
@@ -23,7 +23,7 @@ namespace MvcApplication6.Controllers
         //[Authorize(Roles="Admin")]
         public ActionResult List()
         {
-            return View(list);
+            return View(ProductList);
         }
 
         [ChildActionOnly]
@@ -37,9 +37,9 @@ namespace MvcApplication6.Controllers
         {
             if (Request.IsAjaxRequest())
             {
-                return PartialView(list.FirstOrDefault(x => x.Id == id));
+                return PartialView(ProductList.FirstOrDefault(x => x.Id == id));
             }
-            return View(list.FirstOrDefault(x => x.Id == id));
+            return View(ProductList.FirstOrDefault(x => x.Id == id));
         }
 
         [HttpPost]
@@ -47,10 +47,10 @@ namespace MvcApplication6.Controllers
         {
             if (product != null)
             {
-                var temp = this.list.FirstOrDefault(x=>x.Id==product.Id);
+                var temp = ProductList.FirstOrDefault(x=>x.Id==product.Id);
                 if (temp != null)
                 {
-                    list[list.IndexOf(temp)] = new Product() { Id = product.Id, Description = product.Description, Appeared = product.Appeared }; 
+                    ProductList[ProductList.IndexOf(temp)] = new Product() { Id = product.Id, Description = product.Description, Appeared = product.Appeared }; 
                 }
             }
 

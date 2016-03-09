@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCollectService", "DataC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{185ED76D-ACD0-4800-A866-4DF21A627F59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectorService", "CollectorService\CollectorService.csproj", "{FD8F4E31-5604-4410-96F3-706CDF424625}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{185ED76D-ACD0-4800-A866-4DF21A627F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{185ED76D-ACD0-4800-A866-4DF21A627F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{185ED76D-ACD0-4800-A866-4DF21A627F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD8F4E31-5604-4410-96F3-706CDF424625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8F4E31-5604-4410-96F3-706CDF424625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8F4E31-5604-4410-96F3-706CDF424625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD8F4E31-5604-4410-96F3-706CDF424625}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

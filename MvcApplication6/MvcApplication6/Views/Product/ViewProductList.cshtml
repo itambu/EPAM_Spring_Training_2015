@@ -18,9 +18,7 @@
             <td hidden="hidden" id="@i.Id"></td>
             <td>@i.Description</td>
             <td>@i.Appeared</td>
-@*            <td>@Html.ActionLink("Edit", "Open", new {id=i.Id}) </td>*@
             <td>  
-                @*<input id="edit-product-button" type="button" value="Edit">*@
                 @Ajax.ActionLink("Show", "Open", new { id = i.Id }, new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "product-div", InsertionMode = InsertionMode.Replace, OnSuccess="onProductShow"})
             </td>
         </tr>

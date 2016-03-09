@@ -1,6 +1,6 @@
-﻿namespace DataCollectService
+﻿namespace CollectorService
 {
-    partial class FileCollectSvc
+    partial class Service1
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,14 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            // 
-            // FileCollectSvc
-            // 
-            this.ServiceName = "FileCollector";
-
+            components = new System.ComponentModel.Container();
+            this.ServiceName = "Service1";
         }
 
         #endregion
-
     }
 }
