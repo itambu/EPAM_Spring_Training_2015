@@ -15,7 +15,13 @@ namespace ConsoleApplication4
             string John = list.Find(new Predicate<string>(FindByCompleteMatch) +
                 new Predicate<string>(FindStartWith));
 
-            string pet = list.Find(FindStartWith);
+            int mc = 10;
+            Predicate<string> c = delegate(string source) 
+            { 
+                return source == "John" + mc; 
+            };
+
+            string pet = list.Find(c);
         }
 
         static bool FindByCompleteMatch(string source)
