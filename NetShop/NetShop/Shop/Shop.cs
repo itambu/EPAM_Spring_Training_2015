@@ -66,7 +66,7 @@ namespace NetShop.Shop
 
         public IElement GetElementBy(Func<IElement, bool> condition)
         {
-            return Elements.First(condition);
+            return Elements.FirstOrDefault(condition);
         }
  
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NetShop.Order
 {
-    enum OrderStatus
+    public enum OrderStatus
     {
         Open,
         InProgress,

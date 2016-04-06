@@ -44,11 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category\Category.cs" />
     <Compile Include="Category\ICategory.cs" />
+    <Compile Include="Element\Element.cs" />
     <Compile Include="Element\IElement.cs" />
     <Compile Include="Order\Basket.cs" />
     <Compile Include="Order\BasketElement.cs" />
     <Compile Include="Order\IOrder.cs" />
+    <Compile Include="Order\Order.cs" />
     <Compile Include="Order\OrderStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shop\Shop.cs" />
