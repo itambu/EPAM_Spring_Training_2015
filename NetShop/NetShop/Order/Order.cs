@@ -74,6 +74,9 @@ namespace NetShop.Order
             _status = status;
         }
 
+        public Order()
+        {
+        }
 
         public void Add(Element.IElement element, Decimal sum, Double amount)
         {
@@ -81,6 +84,17 @@ namespace NetShop.Order
         }
 
         public void Remove(BasketElement element)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void Add(Element.IElement element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(Element.IElement element)
         {
             throw new NotImplementedException();
         }

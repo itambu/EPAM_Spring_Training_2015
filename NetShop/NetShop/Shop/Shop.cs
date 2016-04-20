@@ -91,7 +91,15 @@ namespace NetShop.Shop
         }
         #endregion
 
+        public Shop(ICollection<IElement> elements, ICollection<IOrder> orders)
+        {
+            _elements = elements;
+            _orders = orders;
+        }
 
+        public Shop()
+        {
+        }
 
     }
 }
