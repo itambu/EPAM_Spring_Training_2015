@@ -15,8 +15,8 @@ namespace ConsoleApplication10
                 foreach (var p in source)
                 {
                     Console.WriteLine(toStringFunc(p));
-                    yield return p;
                 }
+                return source;
             }
             else
             {

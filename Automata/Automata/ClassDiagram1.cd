@@ -31,14 +31,14 @@
       <FileName>Requests\Request.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Automata.Requests.OutgoingCallRequest" Collapsed="true">
+  <Class Name="Automata.Requests.OutgoingCallRequest">
     <Position X="0.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Requests\OutgoingCallRequest.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Automata.Requests.DisconnectRequest" Collapsed="true">
+  <Class Name="Automata.Requests.DisconnectRequest">
     <Position X="2.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -70,7 +70,7 @@
   <Interface Name="Automata.IStation">
     <Position X="8.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>IStation.cs</FileName>
     </TypeIdentifier>
   </Interface>

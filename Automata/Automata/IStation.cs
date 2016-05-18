@@ -9,5 +9,7 @@ namespace Automata
     {
         void RegisterEventHandlersForTerminal(ITerminal terminal);
         void RegisterEventHandlersForPort(IPort port);
+
+        event EventHandler<CallInfo> CallInfoPrepared;
     }
 }

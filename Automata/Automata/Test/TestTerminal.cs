@@ -15,8 +15,9 @@ namespace Automata.Test
             this.Offline += (sender, args) => { Console.WriteLine("Terminal {0} turned to offline mode", Number); };
         }
 
-        public void OnIncomingRequest(object sender, Requests.IncomingCallRequest request)
+        protected override void OnIncomingRequest(object sender, Requests.IncomingCallRequest request)
         {
+            //base.OnIncomingRequest(sender, request);
             Console.WriteLine("{0} received request for incoming connection from {1}", this.Number, request.Source);
         }
     }

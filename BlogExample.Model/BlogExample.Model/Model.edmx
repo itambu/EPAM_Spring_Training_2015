@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="BlogItemSet" EntityType="Model.Store.BlogItemSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AuthorSet" EntityType="Model.Store.AuthorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TagSet" EntityType="Model.Store.TagSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TagToBlogSet" EntityType="Model.Store.TagToBlogSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AuthorToBlogSet" EntityType="Model.Store.AuthorToBlogSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="TagTagToBlog" Association="Model.Store.TagTagToBlog">
+      <End Role="Tag" EntitySet="TagSet" />
+      <End Role="TagToBlog" EntitySet="TagToBlogSet" />
+    </AssociationSet>
+    <AssociationSet Name="AuthorAuthorToBlog" Association="Model.Store.AuthorAuthorToBlog">
+      <End Role="Author" EntitySet="AuthorSet" />
+      <End Role="AuthorToBlog" EntitySet="AuthorToBlogSet" />
+    </AssociationSet>
+    <AssociationSet Name="BlogItemTagToBlog" Association="Model.Store.BlogItemTagToBlog">
+      <End Role="BlogItem" EntitySet="BlogItemSet" />
+      <End Role="TagToBlog" EntitySet="TagToBlogSet" />
+    </AssociationSet>
+    <AssociationSet Name="BlogItemAuthorToBlog" Association="Model.Store.BlogItemAuthorToBlog">
+      <End Role="BlogItem" EntitySet="BlogItemSet" />
+      <End Role="AuthorToBlog" EntitySet="AuthorToBlogSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BlogItemSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Context" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AuthorSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TagSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TagValue" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TagToBlogSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Tag_Id" Type="int" Nullable="false" />
+    <Property Name="BlogItem_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AuthorToBlogSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlogItemId" Type="int" Nullable="false" />
+    <Property Name="Author_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="TagTagToBlog">
+    <End Role="Tag" Type="Model.Store.TagSet" Multiplicity="1" />
+    <End Role="TagToBlog" Type="Model.Store.TagToBlogSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tag">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TagToBlog">
+        <PropertyRef Name="Tag_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AuthorAuthorToBlog">
+    <End Role="Author" Type="Model.Store.AuthorSet" Multiplicity="1" />
+    <End Role="AuthorToBlog" Type="Model.Store.AuthorToBlogSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthorToBlog">
+        <PropertyRef Name="Author_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BlogItemTagToBlog">
+    <End Role="BlogItem" Type="Model.Store.BlogItemSet" Multiplicity="0..1" />
+    <End Role="TagToBlog" Type="Model.Store.TagToBlogSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TagToBlog">
+        <PropertyRef Name="BlogItem_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BlogItemAuthorToBlog">
+    <End Role="BlogItem" Type="Model.Store.BlogItemSet" Multiplicity="1" />
+    <End Role="AuthorToBlog" Type="Model.Store.AuthorToBlogSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthorToBlog">
+        <PropertyRef Name="BlogItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BlogItemSet" EntityType="Model.BlogItem" />
+          <EntitySet Name="AuthorSet" EntityType="Model.Author" />
+          <EntitySet Name="TagSet" EntityType="Model.Tag" />
+          <EntitySet Name="TagToBlogSet" EntityType="Model.TagToBlog" />
+          <AssociationSet Name="TagTagToBlog" Association="Model.TagTagToBlog">
+            <End Role="Tag" EntitySet="TagSet" />
+            <End Role="TagToBlog" EntitySet="TagToBlogSet" />
+          </AssociationSet>
+          <EntitySet Name="AuthorToBlogSet" EntityType="Model.AuthorToBlog" />
+          <AssociationSet Name="AuthorAuthorToBlog" Association="Model.AuthorAuthorToBlog">
+            <End Role="Author" EntitySet="AuthorSet" />
+            <End Role="AuthorToBlog" EntitySet="AuthorToBlogSet" />
+          </AssociationSet>
+          <AssociationSet Name="BlogItemTagToBlog" Association="Model.BlogItemTagToBlog">
+            <End Role="BlogItem" EntitySet="BlogItemSet" />
+            <End Role="TagToBlog" EntitySet="TagToBlogSet" />
+          </AssociationSet>
+          <AssociationSet Name="BlogItemAuthorToBlog" Association="Model.BlogItemAuthorToBlog">
+            <End Role="BlogItem" EntitySet="BlogItemSet" />
+            <End Role="AuthorToBlog" EntitySet="AuthorToBlogSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BlogItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Context" Nullable="false" />
+          <NavigationProperty Name="TagToBlog" Relationship="Model.BlogItemTagToBlog" FromRole="BlogItem" ToRole="TagToBlog" />
+          <NavigationProperty Name="AuthorToBlog" Relationship="Model.BlogItemAuthorToBlog" FromRole="BlogItem" ToRole="AuthorToBlog" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+          <NavigationProperty Name="AuthorToBlog" Relationship="Model.AuthorAuthorToBlog" FromRole="Author" ToRole="AuthorToBlog" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TagToBlog" Relationship="Model.TagTagToBlog" FromRole="Tag" ToRole="TagToBlog" />
+          <Property Type="String" Name="TagValue" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TagToBlog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <NavigationProperty Name="Tag" Relationship="Model.TagTagToBlog" FromRole="TagToBlog" ToRole="Tag" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <NavigationProperty Name="BlogItem" Relationship="Model.BlogItemTagToBlog" FromRole="TagToBlog" ToRole="BlogItem" />
+        </EntityType>
+        <Association Name="TagTagToBlog">
+          <End Type="Model.Tag" Role="Tag" Multiplicity="1" />
+          <End Type="Model.TagToBlog" Role="TagToBlog" Multiplicity="*" />
+        </Association>
+        <EntityType Name="AuthorToBlog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Author" Relationship="Model.AuthorAuthorToBlog" FromRole="AuthorToBlog" ToRole="Author" />
+          <NavigationProperty Name="BlogItem" Relationship="Model.BlogItemAuthorToBlog" FromRole="AuthorToBlog" ToRole="BlogItem" />
+          <Property Type="Int32" Name="BlogItemId" Nullable="false" />
+        </EntityType>
+        <Association Name="AuthorAuthorToBlog">
+          <End Type="Model.Author" Role="Author" Multiplicity="1" />
+          <End Type="Model.AuthorToBlog" Role="AuthorToBlog" Multiplicity="*" />
+        </Association>
+        <Association Name="BlogItemTagToBlog">
+          <End Type="Model.BlogItem" Role="BlogItem" Multiplicity="0..1" />
+          <End Type="Model.TagToBlog" Role="TagToBlog" Multiplicity="*" />
+        </Association>
+        <Association Name="BlogItemAuthorToBlog">
+          <End Type="Model.BlogItem" Role="BlogItem" Multiplicity="1" />
+          <End Type="Model.AuthorToBlog" Role="AuthorToBlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AuthorToBlog">
+              <PropertyRef Name="BlogItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="BlogItemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.BlogItem)">
+        <MappingFragment StoreEntitySet="BlogItemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Context" ColumnName="Context" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Author)">
+        <MappingFragment StoreEntitySet="AuthorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Tag)">
+        <MappingFragment StoreEntitySet="TagSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TagValue" ColumnName="TagValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagToBlogSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TagToBlog)">
+        <MappingFragment StoreEntitySet="TagToBlogSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthorToBlogSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.AuthorToBlog)">
+        <MappingFragment StoreEntitySet="AuthorToBlogSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BlogItemId" ColumnName="BlogItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="TagTagToBlog" TypeName="Model.TagTagToBlog" StoreEntitySet="TagToBlogSet">
+      <EndProperty Name="Tag">
+        <ScalarProperty Name="Id" ColumnName="Tag_Id" />
+      </EndProperty>
+      <EndProperty Name="TagToBlog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AuthorAuthorToBlog" TypeName="Model.AuthorAuthorToBlog" StoreEntitySet="AuthorToBlogSet">
+      <EndProperty Name="Author">
+        <ScalarProperty Name="Id" ColumnName="Author_Id" />
+      </EndProperty>
+      <EndProperty Name="AuthorToBlog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BlogItemTagToBlog" TypeName="Model.BlogItemTagToBlog" StoreEntitySet="TagToBlogSet">
+      <EndProperty Name="BlogItem">
+        <ScalarProperty Name="Id" ColumnName="BlogItem_Id" />
+      </EndProperty>
+      <EndProperty Name="TagToBlog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="BlogItem_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
