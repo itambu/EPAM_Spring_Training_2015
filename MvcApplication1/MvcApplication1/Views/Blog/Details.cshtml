@@ -1,0 +1,36 @@
+﻿@model MvcApplication1.Models.Blog
+
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Blog</legend>
+
+    @using(Ajax.BeginForm( new AjaxOptions(){UpdateTargetId="", HttpMethod="Get"}))
+    {
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PublishDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PublishDate)
+    </div>
+    
+    }
+
+    <button id="hideButton">Hide</button>
+    
+<script type="text/javascript">
+    $("#hideButton").click(hideBlogDetails);
+</script>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

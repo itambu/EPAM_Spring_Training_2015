@@ -9,10 +9,7 @@ namespace MvcApplication6.Controllers
 {
     public class ProductController : Controller
     {
-        public static List<Product> ProductList = new List<Product>()
-            {
-                new Product(){Id=1, Description="dgsjgsj", Appeared=DateTime.Now}
-            };
+ 
         
         public ActionResult Index()
         {
@@ -23,7 +20,7 @@ namespace MvcApplication6.Controllers
         //[Authorize(Roles="Admin")]
         public ActionResult List()
         {
-            return View(ProductList);
+            return View(new Repositories.ProductRepository().GetAll());
         }
 
         [ChildActionOnly]
@@ -35,11 +32,12 @@ namespace MvcApplication6.Controllers
         [HttpGet]
         public ActionResult Open(int id)
         {
+            var repo = new Repositories.ProductRepository();
             if (Request.IsAjaxRequest())
             {
-                return PartialView(ProductList.FirstOrDefault(x => x.Id == id));
+                return PartialView(repo.FirstOrDefault(x => x.Id == id));
             }
-            return View(ProductList.FirstOrDefault(x => x.Id == id));
+            return View(repo.FirstOrDefault(x => x.Id == id));
         }
 
         [HttpPost]
@@ -47,11 +45,8 @@ namespace MvcApplication6.Controllers
         {
             if (product != null)
             {
-                var temp = ProductList.FirstOrDefault(x=>x.Id==product.Id);
-                if (temp != null)
-                {
-                    ProductList[ProductList.IndexOf(temp)] = new Product() { Id = product.Id, Description = product.Description, Appeared = product.Appeared }; 
-                }
+                var repo = new Repositories.ProductRepository();
+                repo.Update(product); 
             }
 
             return RedirectToAction("List", "Product");

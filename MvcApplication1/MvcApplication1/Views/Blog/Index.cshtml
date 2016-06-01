@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MvcApplication1.Models.Blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="blogListSection">
+    <div id="blogList">
+    </div>
+
+     @Html.ActionLink("Back to List", "Index")
+</section>
+
+<section id="blogDetailsSection">
+    <div id="blogDetails">
+    </div>
+</section>
+
+<script type="text/javascript">
+    onBlogListLoad = function () {
+        $.get('@Url.Action("BlogList", "Blog")', null,
+           function (data, textStatus, jqXHR) {
+               $("#blogList").html(data);
+           });
+    }
+
+    onBlogListLoad();
+
+    showBlogDetails = function () {
+        $("#blogDetails").show();
+    }
+
+    hideBlogDetails = function () {
+        $("#blogDetails").hide();
+        $("#blogDetails").html(null);
+    }
+
+
+</script>
+
+<h2>Index</h2>
