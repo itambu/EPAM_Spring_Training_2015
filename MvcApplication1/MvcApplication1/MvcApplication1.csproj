@@ -307,6 +307,7 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\PartialBlogList.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\Blog\BlogChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

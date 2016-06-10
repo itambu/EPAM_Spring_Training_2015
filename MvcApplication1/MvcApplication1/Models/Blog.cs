@@ -13,5 +13,7 @@ namespace MvcApplication1.Models
         [StringLength(10, ErrorMessage = "Too many chars")]
         public string Description { get; set; }
         public DateTime PublishDate { get; set; }
+
+        public int CommentNumber { get; set; }
     }
 }

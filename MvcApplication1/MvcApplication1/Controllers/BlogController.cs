@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -74,6 +75,20 @@ namespace MvcApplication1.Controllers
                 .GetAll()
                 .Select(x => new Blog() { Id = x.Id, Description = x.Description, PublishDate = x.PublishDate });
             return PartialView("PartialBlogList", item);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public JsonResult GetChartData()
+        {
+            Random rnd = new Random();
+            var item = new DAL.BlogRepository()
+                .GetAll()
+                .Select(x => new object[] { x.Description, rnd.Next(10)} ).ToArray();
+
+            //return Json(item, "", Encoding.UTF8 ,JsonRequestBehavior.AllowGet ); 
+
+            return Json(item, JsonRequestBehavior.AllowGet);
         }
     }
 }

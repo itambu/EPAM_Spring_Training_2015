@@ -17,6 +17,12 @@
     </div>
 </section>
 
+<section>
+    <div id="chart_div">
+        @Html.Partial("BlogChart", Model)
+    </div>
+</section>
+
 <script type="text/javascript">
     onBlogListLoad = function () {
         $.get('@Url.Action("BlogList", "Blog")', null,
