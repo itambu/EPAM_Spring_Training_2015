@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleApplication5
 {
-    public class Text : 
+    public class Text 
     {
         private ICollection<ISentence> Sentences { get; set; }
 

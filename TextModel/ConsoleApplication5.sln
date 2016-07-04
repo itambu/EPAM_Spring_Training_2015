@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication5", "ConsoleApplication5\ConsoleApplication5.csproj", "{0E877B45-182C-4F29-981B-4808A297BFCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reference", "Reference\Reference.csproj", "{CC2DB2F2-1ED1-4E85-A833-EB81F26C07B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcordanceTest", "ConcordanceTest\ConcordanceTest.csproj", "{82A7FA08-7561-4DF1-B049-DDDDB68061D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{0E877B45-182C-4F29-981B-4808A297BFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E877B45-182C-4F29-981B-4808A297BFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E877B45-182C-4F29-981B-4808A297BFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC2DB2F2-1ED1-4E85-A833-EB81F26C07B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2DB2F2-1ED1-4E85-A833-EB81F26C07B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2DB2F2-1ED1-4E85-A833-EB81F26C07B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2DB2F2-1ED1-4E85-A833-EB81F26C07B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82A7FA08-7561-4DF1-B049-DDDDB68061D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A7FA08-7561-4DF1-B049-DDDDB68061D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A7FA08-7561-4DF1-B049-DDDDB68061D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A7FA08-7561-4DF1-B049-DDDDB68061D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
