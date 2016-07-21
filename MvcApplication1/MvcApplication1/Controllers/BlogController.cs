@@ -55,7 +55,7 @@ namespace MvcApplication1.Controllers
 
                 if (Request.IsAjaxRequest())
                 {
-                    return new EmptyResult();
+                    return View("Index");
                 }
                 else
                 {

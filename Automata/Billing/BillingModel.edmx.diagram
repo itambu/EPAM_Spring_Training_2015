@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bb133f0e1b304a7486d09f4c007bdb9f" Name="Diagram1" ZoomLevel="97" >
+        <EntityTypeShape EntityType="BillingModel.Client" Width="1.5" PointX="1.125" PointY="0.75" />
+        <EntityTypeShape EntityType="BillingModel.Contract" Width="1.5" PointX="3.875" PointY="0.75" />
+        <EntityTypeShape EntityType="BillingModel.CallInfo" Width="1.5" PointX="0.5" PointY="3.5" />
+        <EntityTypeShape EntityType="BillingModel.BillingPlan" Width="1.5" PointX="6.375" PointY="1.25" />
+        <AssociationConnector Association="BillingModel.ClientContract" />
+        <EntityTypeShape EntityType="BillingModel.ContractBillingPlanBinding" Width="1.5" PointX="5.5" PointY="3.5" />
+        <AssociationConnector Association="BillingModel.ContractContractBillingPlanBinding" />
+        <AssociationConnector Association="BillingModel.BillingPlanContractBillingPlanBinding" />
+        <EntityTypeShape EntityType="BillingModel.Terminal" Width="1.5" PointX="2.875" PointY="3.5" />
+        <AssociationConnector Association="BillingModel.TerminalBillingInfo" />
+        <AssociationConnector Association="BillingModel.TerminalContract" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

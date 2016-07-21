@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BillingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BillingModelStoreContainer">
+    <EntitySet Name="ClientSet" EntityType="BillingModel.Store.ClientSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContractSet" EntityType="BillingModel.Store.ContractSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BillingInfoSet" EntityType="BillingModel.Store.BillingInfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BillingPlanSet" EntityType="BillingModel.Store.BillingPlanSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContractBillingPlanBindingSet" EntityType="BillingModel.Store.ContractBillingPlanBindingSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TerminalSet" EntityType="BillingModel.Store.TerminalSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ClientContract" Association="BillingModel.Store.ClientContract">
+      <End Role="Client" EntitySet="ClientSet" />
+      <End Role="Contract" EntitySet="ContractSet" />
+    </AssociationSet>
+    <AssociationSet Name="ContractContractBillingPlanBinding" Association="BillingModel.Store.ContractContractBillingPlanBinding">
+      <End Role="Contract" EntitySet="ContractSet" />
+      <End Role="ContractBillingPlanBinding" EntitySet="ContractBillingPlanBindingSet" />
+    </AssociationSet>
+    <AssociationSet Name="BillingPlanContractBillingPlanBinding" Association="BillingModel.Store.BillingPlanContractBillingPlanBinding">
+      <End Role="BillingPlan" EntitySet="BillingPlanSet" />
+      <End Role="ContractBillingPlanBinding" EntitySet="ContractBillingPlanBindingSet" />
+    </AssociationSet>
+    <AssociationSet Name="TerminalBillingInfo" Association="BillingModel.Store.TerminalBillingInfo">
+      <End Role="Terminal" EntitySet="TerminalSet" />
+      <End Role="BillingInfo" EntitySet="BillingInfoSet" />
+    </AssociationSet>
+    <AssociationSet Name="TerminalContract" Association="BillingModel.Store.TerminalContract">
+      <End Role="Terminal" EntitySet="TerminalSet" />
+      <End Role="Contract" EntitySet="ContractSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ClientSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContractSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ContractStartDate" Type="datetime" Nullable="false" />
+    <Property Name="ContractCloseDate" Type="datetime" Nullable="true" />
+    <Property Name="Client_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Terminal_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BillingInfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Started" Type="datetime" Nullable="false" />
+    <Property Name="Duration" Type="time" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Nullable="false" />
+    <Property Name="Source_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BillingPlanSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="boxedObj" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ContractBillingPlanBindingSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BindingDate" Type="datetime" Nullable="false" />
+    <Property Name="Contract_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BillingPlan_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TerminalSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TerminalNumber" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="ClientContract">
+    <End Role="Client" Type="BillingModel.Store.ClientSet" Multiplicity="1" />
+    <End Role="Contract" Type="BillingModel.Store.ContractSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Client_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractContractBillingPlanBinding">
+    <End Role="Contract" Type="BillingModel.Store.ContractSet" Multiplicity="1" />
+    <End Role="ContractBillingPlanBinding" Type="BillingModel.Store.ContractBillingPlanBindingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractBillingPlanBinding">
+        <PropertyRef Name="Contract_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BillingPlanContractBillingPlanBinding">
+    <End Role="BillingPlan" Type="BillingModel.Store.BillingPlanSet" Multiplicity="1" />
+    <End Role="ContractBillingPlanBinding" Type="BillingModel.Store.ContractBillingPlanBindingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BillingPlan">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractBillingPlanBinding">
+        <PropertyRef Name="BillingPlan_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TerminalBillingInfo">
+    <End Role="Terminal" Type="BillingModel.Store.TerminalSet" Multiplicity="1" />
+    <End Role="BillingInfo" Type="BillingModel.Store.BillingInfoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BillingInfo">
+        <PropertyRef Name="Source_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TerminalContract">
+    <End Role="Terminal" Type="BillingModel.Store.TerminalSet" Multiplicity="1" />
+    <End Role="Contract" Type="BillingModel.Store.ContractSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Terminal_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BillingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="BillingModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClientSet" EntityType="BillingModel.Client" />
+          <EntitySet Name="ContractSet" EntityType="BillingModel.Contract" />
+          <EntitySet Name="CallInfoSet" EntityType="BillingModel.CallInfo" />
+          <EntitySet Name="BillingPlanSet" EntityType="BillingModel.BillingPlan" />
+          <AssociationSet Name="ClientContract" Association="BillingModel.ClientContract">
+            <End Role="Client" EntitySet="ClientSet" />
+            <End Role="Contract" EntitySet="ContractSet" />
+          </AssociationSet>
+          <EntitySet Name="ContractBillingPlanBindingSet" EntityType="BillingModel.ContractBillingPlanBinding" />
+          <AssociationSet Name="ContractContractBillingPlanBinding" Association="BillingModel.ContractContractBillingPlanBinding">
+            <End Role="Contract" EntitySet="ContractSet" />
+            <End Role="ContractBillingPlanBinding" EntitySet="ContractBillingPlanBindingSet" />
+          </AssociationSet>
+          <AssociationSet Name="BillingPlanContractBillingPlanBinding" Association="BillingModel.BillingPlanContractBillingPlanBinding">
+            <End Role="BillingPlan" EntitySet="BillingPlanSet" />
+            <End Role="ContractBillingPlanBinding" EntitySet="ContractBillingPlanBindingSet" />
+          </AssociationSet>
+          <EntitySet Name="TerminalSet" EntityType="BillingModel.Terminal" />
+          <AssociationSet Name="TerminalBillingInfo" Association="BillingModel.TerminalBillingInfo">
+            <End Role="Terminal" EntitySet="TerminalSet" />
+            <End Role="BillingInfo" EntitySet="CallInfoSet" />
+          </AssociationSet>
+          <AssociationSet Name="TerminalContract" Association="BillingModel.TerminalContract">
+            <End Role="Terminal" EntitySet="TerminalSet" />
+            <End Role="Contract" EntitySet="ContractSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="FullName" Nullable="false" />
+          <NavigationProperty Name="Contracts" Relationship="BillingModel.ClientContract" FromRole="Client" ToRole="Contract" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="DateTime" Name="ContractStartDate" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="BillingModel.ClientContract" FromRole="Contract" ToRole="Client" />
+          <NavigationProperty Name="ContractBillingPlanBinding" Relationship="BillingModel.ContractContractBillingPlanBinding" FromRole="Contract" ToRole="ContractBillingPlanBinding" />
+          <Property Type="DateTime" Name="ContractCloseDate" Nullable="true" />
+          <NavigationProperty Name="Terminal" Relationship="BillingModel.TerminalContract" FromRole="Contract" ToRole="Terminal" />
+        </EntityType>
+        <EntityType Name="CallInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="Source" Relationship="BillingModel.TerminalBillingInfo" FromRole="BillingInfo" ToRole="Terminal" />
+          <NavigationProperty Name="Target" Relationship="BillingModel.TerminalBillingInfo" FromRole="BillingInfo" ToRole="Terminal" />
+          <Property Type="DateTime" Name="Started" Nullable="false" />
+          <Property Type="Time" Name="Duration" Nullable="false" />
+          <Property Type="Decimal" Name="Cost" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BillingPlan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="ContractBillingPlanBinding" Relationship="BillingModel.BillingPlanContractBillingPlanBinding" FromRole="BillingPlan" ToRole="ContractBillingPlanBinding" />
+          <Property Type="Binary" Name="boxedObj" Nullable="true" cg:GetterAccess="Protected" cg:SetterAccess="Protected" />
+        </EntityType>
+        <Association Name="ClientContract">
+          <End Type="BillingModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="BillingModel.Contract" Role="Contract" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ContractBillingPlanBinding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="Contract" Relationship="BillingModel.ContractContractBillingPlanBinding" FromRole="ContractBillingPlanBinding" ToRole="Contract" />
+          <NavigationProperty Name="BillingPlan" Relationship="BillingModel.BillingPlanContractBillingPlanBinding" FromRole="ContractBillingPlanBinding" ToRole="BillingPlan" />
+          <Property Type="DateTime" Name="BindingDate" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractContractBillingPlanBinding">
+          <End Type="BillingModel.Contract" Role="Contract" Multiplicity="1" />
+          <End Type="BillingModel.ContractBillingPlanBinding" Role="ContractBillingPlanBinding" Multiplicity="*" />
+        </Association>
+        <Association Name="BillingPlanContractBillingPlanBinding">
+          <End Type="BillingModel.BillingPlan" Role="BillingPlan" Multiplicity="1" />
+          <End Type="BillingModel.ContractBillingPlanBinding" Role="ContractBillingPlanBinding" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Terminal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="TerminalNumber" Nullable="false" />
+          <NavigationProperty Name="BillingInfo" Relationship="BillingModel.TerminalBillingInfo" FromRole="Terminal" ToRole="BillingInfo" />
+          <NavigationProperty Name="Contract" Relationship="BillingModel.TerminalContract" FromRole="Terminal" ToRole="Contract" />
+        </EntityType>
+        <Association Name="TerminalBillingInfo">
+          <End Type="BillingModel.Terminal" Role="Terminal" Multiplicity="1" />
+          <End Type="BillingModel.CallInfo" Role="BillingInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="TerminalContract">
+          <End Type="BillingModel.Terminal" Role="Terminal" Multiplicity="1" />
+          <End Type="BillingModel.Contract" Role="Contract" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BillingModelStoreContainer" CdmEntityContainer="BillingModelContainer">
+    <EntitySetMapping Name="ClientSet">
+      <EntityTypeMapping TypeName="IsTypeOf(BillingModel.Client)">
+        <MappingFragment StoreEntitySet="ClientSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractSet">
+      <EntityTypeMapping TypeName="IsTypeOf(BillingModel.Contract)">
+        <MappingFragment StoreEntitySet="ContractSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractStartDate" ColumnName="ContractStartDate" />
+          <ScalarProperty Name="ContractCloseDate" ColumnName="ContractCloseDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CallInfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(BillingModel.CallInfo)">
+        <MappingFragment StoreEntitySet="BillingInfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Started" ColumnName="Started" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillingPlanSet">
+      <EntityTypeMapping TypeName="IsTypeOf(BillingModel.BillingPlan)">
+        <MappingFragment StoreEntitySet="BillingPlanSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="boxedObj" ColumnName="boxedObj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractBillingPlanBindingSet">
+      <EntityTypeMapping TypeName="IsTypeOf(BillingModel.ContractBillingPlanBinding)">
+        <MappingFragment StoreEntitySet="ContractBillingPlanBindingSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BindingDate" ColumnName="BindingDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TerminalSet">
+      <EntityTypeMapping TypeName="IsTypeOf(BillingModel.Terminal)">
+        <MappingFragment StoreEntitySet="TerminalSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TerminalNumber" ColumnName="TerminalNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ClientContract" TypeName="BillingModel.ClientContract" StoreEntitySet="ContractSet">
+      <EndProperty Name="Client">
+        <ScalarProperty Name="Id" ColumnName="Client_Id" />
+      </EndProperty>
+      <EndProperty Name="Contract">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ContractContractBillingPlanBinding" TypeName="BillingModel.ContractContractBillingPlanBinding" StoreEntitySet="ContractBillingPlanBindingSet">
+      <EndProperty Name="Contract">
+        <ScalarProperty Name="Id" ColumnName="Contract_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractBillingPlanBinding">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BillingPlanContractBillingPlanBinding" TypeName="BillingModel.BillingPlanContractBillingPlanBinding" StoreEntitySet="ContractBillingPlanBindingSet">
+      <EndProperty Name="BillingPlan">
+        <ScalarProperty Name="Id" ColumnName="BillingPlan_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractBillingPlanBinding">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TerminalBillingInfo" TypeName="BillingModel.TerminalBillingInfo" StoreEntitySet="BillingInfoSet">
+      <EndProperty Name="Terminal">
+        <ScalarProperty Name="Id" ColumnName="Source_Id" />
+      </EndProperty>
+      <EndProperty Name="BillingInfo">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TerminalContract" TypeName="BillingModel.TerminalContract" StoreEntitySet="ContractSet">
+      <EndProperty Name="Terminal">
+        <ScalarProperty Name="Id" ColumnName="Terminal_Id" />
+      </EndProperty>
+      <EndProperty Name="Contract">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
