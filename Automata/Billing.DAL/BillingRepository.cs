@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Billing.Model;
 using Billing.ModelInterfaces;
+using System.Linq.Expressions;
 
 namespace Billing.DAL
 {
@@ -37,7 +38,6 @@ namespace Billing.DAL
             if (model != null)
             {
                 ValidateDataContext();
-                //AttachEntityProperties(model);
                 AttachInnerEntities(model);
                 _dataContext.Set<EntityModel>().Add(model as EntityModel);
             }
@@ -46,8 +46,6 @@ namespace Billing.DAL
                 throw new NullReferenceException("Parameter model is null");
             }
         }
-
-//        protected abstract void AttachEntityProperties(EntityInterface model);
 
         public void Remove(EntityInterface model)
         {
@@ -98,8 +96,11 @@ namespace Billing.DAL
         public IQueryable<EntityInterface> GetEntities(System.Linq.Expressions.Expression<Func<EntityInterface, bool>> predicate)
         {
             ValidateDataContext();
-            return _dataContext.Set<EntityModel>().Where(predicate);
+            return _dataContext.Set<EntityModel>().Where(predicate)
+                .IncludeReferences(typeof(EntityModel), null, QueryableExtensions.GetEntityTypes(_dataContext), true);
         }
+
+       
 
         public EntityInterface FirstOrDefault(System.Linq.Expressions.Expression<Func<EntityInterface, bool>> predicate)
         {
@@ -111,22 +112,31 @@ namespace Billing.DAL
             return FirstOrDefault(x=>x.Id == id);
         }
 
+
+
         protected void AttachInnerEntities(EntityInterface model)
         {
-            var dbSets = _dataContext.GetType().GetProperties()
-                .Where(x=>x.PropertyType.IsGenericType && x.PropertyType.GetGenericTypeDefinition()==typeof(System.Data.Entity.DbSet<>))
-                .ToArray();
+            var dbSets = QueryableExtensions.GetEntityTypes(_dataContext);
 
             var res = model.GetType()
-                .GetProperties( System.Reflection.BindingFlags.Public |System.Reflection.BindingFlags.Instance).Join(
+                .GetProperties( System.Reflection.BindingFlags.Public |System.Reflection.BindingFlags.Instance)
+                .Join(
                     dbSets,
                     y => y.PropertyType,
-                    x => x.PropertyType.GetGenericArguments().FirstOrDefault(),
+                    x => x,
                     (propInfo, gerericArg) => propInfo);
             foreach (System.Reflection.PropertyInfo p in res)
             {
                 _dataContext.Set(p.PropertyType).Attach(p.GetValue(model)); 
             }
         }
+
+        //public IEnumerable<EntityInterface> Load(this IQueryable<EntityInterface> source)
+        //{
+        //    foreach (var c in source)
+        //    {
+        //        _dataContext.Entry(c).Reference("").Load(
+        //    }
+        //}
     }
 }

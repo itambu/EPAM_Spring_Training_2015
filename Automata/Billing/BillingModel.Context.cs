@@ -18,6 +18,7 @@ namespace Billing.Model
         public BillingModelContainer()
             : base("name=BillingModelContainer")
         {
+    		this.Database.Log = x=>Console.WriteLine(x);
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

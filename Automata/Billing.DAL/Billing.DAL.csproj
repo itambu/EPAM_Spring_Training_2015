@@ -56,6 +56,7 @@
     <Compile Include="ContractRepository.cs" />
     <Compile Include="IBillingRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryableExtensions.cs" />
     <Compile Include="TerminalRepository.cs" />
   </ItemGroup>
   <ItemGroup>

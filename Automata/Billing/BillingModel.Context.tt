@@ -67,6 +67,7 @@ if (!loader.IsLazyLoadingEnabled(container))
 <#
 }
 #>
+		this.Database.Log = x=>Console.WriteLine(x);
     }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)

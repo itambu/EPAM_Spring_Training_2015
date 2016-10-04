@@ -76,8 +76,11 @@ namespace TestApp
             //    BindingDate = new DateTime(2016, 7, 1)
             //});
 
-            var c = handler.GetContracts(x => x.Client.FullName == "Шериф").FirstOrDefault() as Contract;
-            var p = handler.CloseContract(c, new DateTime(2016, 7, 2));
+            //var c = handler.GetContracts(x => x.Client.FullName == "Шериф").FirstOrDefault() as Contract;
+            //var p = handler.CloseContract(c, new DateTime(2016, 7, 2));
+
+            var c = handler.GetContractBillingPalnBindings(x => true).FirstOrDefault();
+
         }
     }
 }
