@@ -81,6 +81,7 @@ namespace TestApp
 
             var c = handler.GetContractBillingPalnBindings(x => true).FirstOrDefault();
 
+            // new comment
         }
     }
 }
