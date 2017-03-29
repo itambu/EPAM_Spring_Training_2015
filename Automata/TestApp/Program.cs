@@ -81,12 +81,9 @@ namespace TestApp
 
             var c = handler.GetContractBillingPalnBindings(x => true).FirstOrDefault();
 
-<<<<<<< HEAD
             // new comment
-=======
             // comment
 
->>>>>>> refs/remotes/origin/b1
         }
     }
 }
