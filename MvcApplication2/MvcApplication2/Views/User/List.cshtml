@@ -1,0 +1,17 @@
+﻿@model ICollection<MvcApplication2.Models.UserModel>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<ol>
+@foreach (var user in Model)
+{
+        <li>
+            @Html.Label("First Name")
+            @Html.TextBox("dfdfd", user.FirstName)
+        </li>
+}
+ </ol>
+    
+<h2>List</h2>

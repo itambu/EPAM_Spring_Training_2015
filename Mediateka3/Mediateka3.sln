@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediateka3", "Mediateka3\Mediateka3.csproj", "{F64FF945-8EC0-4290-99AE-E9860B616E86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{9347E04A-9F11-4896-8042-265F3CAF7BF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F64FF945-8EC0-4290-99AE-E9860B616E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64FF945-8EC0-4290-99AE-E9860B616E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64FF945-8EC0-4290-99AE-E9860B616E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64FF945-8EC0-4290-99AE-E9860B616E86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9347E04A-9F11-4896-8042-265F3CAF7BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9347E04A-9F11-4896-8042-265F3CAF7BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9347E04A-9F11-4896-8042-265F3CAF7BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9347E04A-9F11-4896-8042-265F3CAF7BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
