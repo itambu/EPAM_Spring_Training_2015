@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaLib.Core", "MediaLib.Core\MediaLib.Core.csproj", "{341253F8-62A2-48A3-9BDF-8A2B3D2E13DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{341253F8-62A2-48A3-9BDF-8A2B3D2E13DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{341253F8-62A2-48A3-9BDF-8A2B3D2E13DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{341253F8-62A2-48A3-9BDF-8A2B3D2E13DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{341253F8-62A2-48A3-9BDF-8A2B3D2E13DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

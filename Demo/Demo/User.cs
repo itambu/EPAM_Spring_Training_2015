@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    public class User
+    public abstract class User
     {
         private string _firstName;
         private string _lastName;
@@ -54,10 +54,8 @@ namespace Demo
         {
         }
 
-        public virtual void DoWork()
-        {
-            Console.WriteLine("User is working");
-        }
+        public abstract void DoWork();
+        
 
     }
 }

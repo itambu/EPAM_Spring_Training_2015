@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{3EAE0F7E-425A-4CB7-860E-FEF523D58D2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Progressions", "Progressions\Progressions.csproj", "{A09509AF-6B9A-4C49-8962-ABFA87FC7EF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{3EAE0F7E-425A-4CB7-860E-FEF523D58D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EAE0F7E-425A-4CB7-860E-FEF523D58D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EAE0F7E-425A-4CB7-860E-FEF523D58D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A09509AF-6B9A-4C49-8962-ABFA87FC7EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A09509AF-6B9A-4C49-8962-ABFA87FC7EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A09509AF-6B9A-4C49-8962-ABFA87FC7EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A09509AF-6B9A-4C49-8962-ABFA87FC7EF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
