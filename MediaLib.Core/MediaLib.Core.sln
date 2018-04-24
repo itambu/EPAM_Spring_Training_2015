@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaLib.Core", "MediaLib.Core\MediaLib.Core.csproj", "{341253F8-62A2-48A3-9BDF-8A2B3D2E13DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaLib.Demo", "MediaLib.Demo\MediaLib.Demo.csproj", "{1E3C30B6-9DC8-4395-BD17-9E7688F17E32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{341253F8-62A2-48A3-9BDF-8A2B3D2E13DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{341253F8-62A2-48A3-9BDF-8A2B3D2E13DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{341253F8-62A2-48A3-9BDF-8A2B3D2E13DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E3C30B6-9DC8-4395-BD17-9E7688F17E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E3C30B6-9DC8-4395-BD17-9E7688F17E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E3C30B6-9DC8-4395-BD17-9E7688F17E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E3C30B6-9DC8-4395-BD17-9E7688F17E32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

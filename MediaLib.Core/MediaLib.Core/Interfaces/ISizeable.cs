@@ -8,6 +8,6 @@ namespace MediaLib.Core.Interfaces
 {
     public interface ISizeable
     {
-        public Classes.Size Size { get; }
+        Classes.Size Size { get; }
     }
 }

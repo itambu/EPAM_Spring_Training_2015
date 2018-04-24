@@ -10,8 +10,10 @@ namespace MediaLib.Core.Classes
     {
         public int Width { get; private set; }
         public int Height { get; private set; }
-        public Size(int width, int height)
+        object p;
+        public Size(int width, int height) 
         {
+            p = null;
             Width = width;
             Height = height;
         }
