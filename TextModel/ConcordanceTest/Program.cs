@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Reference;
+using System.Configuration;
 
 namespace ConcordanceTest
 {
@@ -11,6 +12,7 @@ namespace ConcordanceTest
     {
         static void Main(string[] args)
         {
+
             List<KeyValuePair<string, int>> source = new List<KeyValuePair<string, int>>();
             
             Random random = new Random();
