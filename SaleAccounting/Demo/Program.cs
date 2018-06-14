@@ -20,7 +20,7 @@ namespace Demo
 
                 Manager m1 = dbcontext.Managers.FirstOrDefault(x => x.Id == 1);
 
-                Console.WriteLine(
+               
             }
 
         }
