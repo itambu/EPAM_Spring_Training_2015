@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BlogModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BlogModelStoreContainer">
+    <EntitySet Name="Users" EntityType="BlogModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Blogs" EntityType="BlogModel.Store.Blogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comments" EntityType="BlogModel.Store.Comments" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserBlog" Association="BlogModel.Store.UserBlog">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Blog" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="BlogComment" Association="BlogModel.Store.BlogComment">
+      <End Role="Blog" EntitySet="Blogs" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="UserComment" Association="BlogModel.Store.UserComment">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="CommentComment" Association="BlogModel.Store.CommentComment">
+      <End Role="Comment" EntitySet="Comments" />
+      <End Role="Comment1" EntitySet="Comments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Author_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Blog_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Parent_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <Association Name="UserBlog">
+    <End Role="User" Type="BlogModel.Store.Users" Multiplicity="1" />
+    <End Role="Blog" Type="BlogModel.Store.Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="Author_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BlogComment">
+    <End Role="Blog" Type="BlogModel.Store.Blogs" Multiplicity="1" />
+    <End Role="Comment" Type="BlogModel.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blog">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="Blog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserComment">
+    <End Role="User" Type="BlogModel.Store.Users" Multiplicity="1" />
+    <End Role="Comment" Type="BlogModel.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommentComment">
+    <End Role="Comment" Type="BlogModel.Store.Comments" Multiplicity="0..1" />
+    <End Role="Comment1" Type="BlogModel.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment1">
+        <PropertyRef Name="Parent_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BlogModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="BlogDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="BlogModel.User" />
+          <EntitySet Name="Blogs" EntityType="BlogModel.Blog" />
+          <EntitySet Name="Comments" EntityType="BlogModel.Comment" />
+          <AssociationSet Name="UserBlog" Association="BlogModel.UserBlog">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Blog" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="BlogComment" Association="BlogModel.BlogComment">
+            <End Role="Blog" EntitySet="Blogs" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="UserComment" Association="BlogModel.UserComment">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="CommentComment" Association="BlogModel.CommentComment">
+            <End Role="Comment" EntitySet="Comments" />
+            <End Role="Comment1" EntitySet="Comments" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+          <NavigationProperty Name="Blogs" Relationship="BlogModel.UserBlog" FromRole="User" ToRole="Blog" />
+          <NavigationProperty Name="Comments" Relationship="BlogModel.UserComment" FromRole="User" ToRole="Comment" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" />
+          <NavigationProperty Name="Author" Relationship="BlogModel.UserBlog" FromRole="Blog" ToRole="User" />
+          <NavigationProperty Name="Comments" Relationship="BlogModel.BlogComment" FromRole="Blog" ToRole="Comment" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Text" Nullable="false" />
+          <NavigationProperty Name="Blog" Relationship="BlogModel.BlogComment" FromRole="Comment" ToRole="Blog" />
+          <NavigationProperty Name="User" Relationship="BlogModel.UserComment" FromRole="Comment" ToRole="User" />
+          <NavigationProperty Name="Comments" Relationship="BlogModel.CommentComment" FromRole="Comment" ToRole="Comment1" />
+          <NavigationProperty Name="Parent" Relationship="BlogModel.CommentComment" FromRole="Comment1" ToRole="Comment" />
+        </EntityType>
+        <Association Name="UserBlog">
+          <End Type="BlogModel.User" Role="User" Multiplicity="1" />
+          <End Type="BlogModel.Blog" Role="Blog" Multiplicity="*" />
+        </Association>
+        <Association Name="BlogComment">
+          <End Type="BlogModel.Blog" Role="Blog" Multiplicity="1" />
+          <End Type="BlogModel.Comment" Role="Comment" Multiplicity="*" />
+        </Association>
+        <Association Name="UserComment">
+          <End Type="BlogModel.User" Role="User" Multiplicity="1" />
+          <End Type="BlogModel.Comment" Role="Comment" Multiplicity="*" />
+        </Association>
+        <Association Name="CommentComment">
+          <End Type="BlogModel.Comment" Role="Comment" Multiplicity="0..1" />
+          <End Type="BlogModel.Comment" Role="Comment1" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BlogModelStoreContainer" CdmEntityContainer="BlogDbContext">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(BlogModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="IsTypeOf(BlogModel.Blog)">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="IsTypeOf(BlogModel.Comment)">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserBlog" TypeName="BlogModel.UserBlog" StoreEntitySet="Blogs">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Author_Id" />
+      </EndProperty>
+      <EndProperty Name="Blog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BlogComment" TypeName="BlogModel.BlogComment" StoreEntitySet="Comments">
+      <EndProperty Name="Blog">
+        <ScalarProperty Name="Id" ColumnName="Blog_Id" />
+      </EndProperty>
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserComment" TypeName="BlogModel.UserComment" StoreEntitySet="Comments">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommentComment" TypeName="BlogModel.CommentComment" StoreEntitySet="Comments">
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="Id" ColumnName="Parent_Id" />
+      </EndProperty>
+      <EndProperty Name="Comment1">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Parent_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
